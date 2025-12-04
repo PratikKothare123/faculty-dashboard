@@ -1,23 +1,33 @@
+/* ===== Base layout ===== */
+
+* {
+  box-sizing: border-box;
+}
+
 body {
-  font-family: "Segoe UI", sans-serif;
+  font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   background: linear-gradient(135deg, #e3f2fd, #f1f8e9);
   margin: 0;
-  padding: 40px 0;
+  padding: 32px 0;
+  color: #222;
 }
 
 .container {
-  width: 90%;
+  width: 95%;
   max-width: 900px;
-  margin: 0 auto;
+  margin: 0 auto 40px;
   background: #fff;
-  padding: 30px 25px 40px;
+  padding: 24px 18px 32px;
   border-radius: 16px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
 }
+
+/* ===== Headings & text ===== */
 
 h1 {
   text-align: center;
-  margin-bottom: 10px;
+  margin: 0 0 10px;
+  font-size: 26px;
 }
 
 .subtitle {
@@ -26,32 +36,48 @@ h1 {
   margin-bottom: 25px;
 }
 
+/* ===== Cards ===== */
+
 .card {
   border-radius: 12px;
   border: 1px solid #e0e0e0;
-  padding: 20px;
-  margin-top: 20px;
+  padding: 18px 16px;
+  margin-top: 18px;
   background: #fafafa;
 }
 
 .card h2 {
-  margin-top: 0;
+  margin: 0 0 8px;
+  font-size: 18px;
 }
+
+.card p {
+  margin: 4px 0 10px;
+  font-size: 14px;
+  color: #444;
+}
+
+/* ===== Form controls ===== */
 
 input[type="text"],
 input[type="password"],
-input[type="url"] {
+input[type="url"],
+select {
   width: 100%;
   padding: 8px 10px;
-  margin: 6px 0;
+  margin: 6px 0 10px;
   border-radius: 6px;
   border: 1px solid #ccc;
   font-size: 14px;
-  box-sizing: border-box;
+  background: #fff;
+}
+
+select {
+  cursor: pointer;
 }
 
 button {
-  margin-top: 8px;
+  margin-top: 6px;
   padding: 8px 14px;
   border: none;
   border-radius: 6px;
@@ -59,16 +85,47 @@ button {
   color: #fff;
   font-weight: 600;
   cursor: pointer;
+  font-size: 14px;
+  transition: background 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+}
+
+button.primary {
+  background: #1976d2;
+}
+
+button.success {
+  background: #2e7d32;
+}
+
+button.danger {
+  background: #e53935;
+}
+
+button.large {
+  width: 100%;
 }
 
 button:hover {
-  background: #1565c0;
+  background: #1259a3;
+  transform: translateY(-1px);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.18);
 }
+
+button.success:hover {
+  background: #1b5e20;
+}
+
+button.danger:hover {
+  background: #c62828;
+}
+
+/* ===== Messages ===== */
 
 .message {
   padding: 10px 14px;
   border-radius: 6px;
   margin-bottom: 15px;
+  font-size: 14px;
 }
 
 .message.error {
@@ -83,6 +140,8 @@ button:hover {
   border: 1px solid #a5d6a7;
 }
 
+/* ===== Result table ===== */
+
 .result-table {
   width: 100%;
   border-collapse: collapse;
@@ -93,6 +152,7 @@ button:hover {
 .result-table td {
   border: 1px solid #ddd;
   padding: 8px;
+  text-align: left;
 }
 
 .result-table th {
@@ -101,13 +161,21 @@ button:hover {
   width: 30%;
 }
 
-.btn-back, .btn-primary {
+.result-table td {
+  background: #fafafa;
+}
+
+/* ===== Links / buttons ===== */
+
+.btn-back,
+.btn-primary {
   display: inline-block;
   margin-top: 20px;
   padding: 8px 14px;
   border-radius: 6px;
   text-decoration: none;
   font-weight: 600;
+  font-size: 14px;
 }
 
 .btn-back {
@@ -131,15 +199,16 @@ button:hover {
 #loading-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.85);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   z-index: 9999;
-  font-size: 18px;
+  font-size: 16px;
   color: #333;
   text-align: center;
+  padding: 0 20px;
 }
 
 #loading-overlay.hidden {
@@ -147,12 +216,12 @@ button:hover {
 }
 
 .spinner {
-  width: 60px;
-  height: 60px;
+  width: 56px;
+  height: 56px;
   border-radius: 50%;
   border: 6px solid #ddd;
   border-top-color: #007bff;
-  animation: spin 1s linear infinite;
+  animation: spin 0.9s linear infinite;
   margin-bottom: 15px;
 }
 
@@ -162,19 +231,10 @@ button:hover {
   }
 }
 
-/* Optional button colours for add/delete */
-button.success {
-  background: #28a745;
-}
-
-button.danger {
-  background: #e74c3c;
-}
-
-/* ===== Normal Footer (bottom of page content) ===== */
+/* ===== Footer ===== */
 
 .footer {
-  margin-top: 40px;          /* space above footer (below last card) */
+  margin-top: 40px;
   padding: 15px 0;
   text-align: center;
   border-top: 1px solid #ddd;
@@ -201,16 +261,95 @@ button.danger {
   transition: color 0.3s ease;
 }
 
-/* 🔥 Hover effect on footer */
+/* Hover effect on footer */
 .footer:hover {
-  background: #e3f2fd;              /* light blue on hover */
+  background: #e3f2fd;
 }
 
 .footer:hover .footer-logo {
-  transform: scale(1.08);           /* slightly bigger */
+  transform: scale(1.08);
   filter: drop-shadow(0 0 4px rgba(0, 123, 255, 0.4));
 }
 
 .footer:hover p {
-  color: #1565c0;                   /* darker blue text */
+  color: #1565c0;
+}
+
+/* ===== Responsive tweaks ===== */
+
+/* Tablets and down */
+@media (max-width: 768px) {
+  body {
+    padding: 20px 0;
+  }
+
+  .container {
+    padding: 18px 14px 26px;
+    margin-bottom: 30px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  .card {
+    padding: 14px 12px;
+  }
+
+  button,
+  input,
+  select {
+    font-size: 13px;
+  }
+
+  .result-table th,
+  .result-table td {
+    font-size: 13px;
+    padding: 6px;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  body {
+    padding: 12px 0;
+  }
+
+  .container {
+    width: 96%;
+    padding: 14px 10px 20px;
+    border-radius: 12px;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  .card h2 {
+    font-size: 16px;
+  }
+
+  .card {
+    margin-top: 14px;
+  }
+
+  button {
+    width: 100%;
+    margin-top: 8px;
+  }
+
+  .btn-back,
+  .btn-primary {
+    width: 100%;
+    text-align: center;
+  }
+
+  .footer {
+    margin-top: 30px;
+    padding: 12px 0;
+  }
+
+  .footer-logo {
+    height: 28px;
+  }
 }
