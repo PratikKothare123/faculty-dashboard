@@ -171,27 +171,25 @@ button.danger {
   background: #e74c3c;
 }
 
-/* ===== Fixed Footer ===== */
+/* ===== Normal Footer (bottom of page content) ===== */
 
 .footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background: #ffffff;
-  border-top: 1px solid #ddd;
+  margin-top: 40px;          /* space above footer (below last card) */
+  padding: 15px 0;
   text-align: center;
-  padding: 10px 0;
-  z-index: 999;
+  border-top: 1px solid #ddd;
+  background: #f8f9fa;
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 6px;
+  transition: background 0.3s ease;
 }
 
 .footer-logo {
   height: 32px;
   width: auto;
-  margin-bottom: 5px;
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 .footer p {
@@ -200,4 +198,19 @@ button.danger {
   color: #444;
   font-weight: 500;
   letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+}
+
+/* 🔥 Hover effect on footer */
+.footer:hover {
+  background: #e3f2fd;              /* light blue on hover */
+}
+
+.footer:hover .footer-logo {
+  transform: scale(1.08);           /* slightly bigger */
+  filter: drop-shadow(0 0 4px rgba(0, 123, 255, 0.4));
+}
+
+.footer:hover p {
+  color: #1565c0;                   /* darker blue text */
 }
