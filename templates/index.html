@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Google Scholar Data Fetcher</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>📊 Google Scholar Data Fetcher</h1>
+
+    <!-- View Faculty Data -->
+    <section class="card">
+      <h2>1️⃣ View Faculty Data</h2>
+      <form action="/fetch_one" method="post">
+        <label for="faculty_name">Select Faculty:</label>
+        <select name="faculty_name" id="faculty_name" required>
+          <option value="">-- Select Faculty --</option>
+          {% for name in faculty_names %}
+          <option value="{{ name }}">{{ name }}</option>
+          {% endfor %}
+        </select>
+        <button type="submit" class="primary">View Data</button>
+      </form>
+    </section>
+
+    <!-- Add Faculty (Admin) -->
+    <section class="card">
+      <h2>2️⃣ Add Faculty (Admin)</h2>
+      <form action="/add_faculty" method="post">
+        <label>Admin Password:</label>
+        <input type="password" name="admin_password" required>
+
+        <label>Faculty Name:</label>
+        <input type="text" name="new_name" required>
+
+        <label>Google Scholar Profile URL:</label>
+        <input type="url" name="new_url" required>
+
+        <button type="submit" class="success">Add Faculty</button>
+      </form>
+    </section>
+
+    <!-- Delete Faculty (Admin) -->
+    <section class="card">
+      <h2>3️⃣ Delete Faculty (Admin)</h2>
+      <form action="/delete_faculty" method="post">
+        <label>Admin Password:</label>
+        <input type="password" name="admin_password_del" required>
+
+        <label>Select Faculty to Delete:</label>
+        <select name="delete_name" required>
+          <option value="">-- Select Faculty --</option>
+          {% for name in faculty_names %}
+          <option value="{{ name }}">{{ name }}</option>
+          {% endfor %}
+        </select>
+
+        <button type="submit" class="danger">Delete Faculty</button>
+      </form>
+    </section>
+
+    <!-- Update Excel + Download -->
+    <section class="card">
+      <h2>4️⃣ Fetch All & Download Updated Excel</h2>
+      <form id="update-form" action="/update_excel" method="post">
+        <button type="submit" class="primary large">
+          Fetch fresh data for all faculty &amp; prepare Excel
+        </button>
+      </form>
+    </section>
+  </div>
+
+  <!-- Loading overlay for long operations -->
+  <div id="loading-overlay" class="hidden">
+    <div class="spinner"></div>
+    <p>Fetching data from Google Scholar… This may take some time.</p>
+  </div>
+
+  <script>
+    const updateForm = document.getElementById('update-form');
+    const loadingOverlay = document.getElementById('loading-overlay');
+
+    if (updateForm) {
+      updateForm.addEventListener('submit', function () {
+        // Show spinner overlay when the big "fetch all" form is submitted
+        loadingOverlay.classList.remove('hidden');
+      });
+    }
+  </script>
+  <footer class="footer">
+    <img src="{{ url_for('static', filename='logo.png') }}" class="footer-logo">
+    <p>© p_for_pratik143 — All Rights Reserved</p>
+</footer>
+
+</body>
+</html>

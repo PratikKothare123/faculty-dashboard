@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Update Summary | Google Scholar Data Fetcher</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <div class="container">
+    <h1>📊 Google Scholar Data Fetcher</h1>
+
+    {% if error %}
+      <div class="message error">{{ error }}</div>
+    {% else %}
+      <div class="card">
+        <h2>Update Summary</h2>
+        <p><strong>Updated:</strong> {{ updated }} / {{ total }} faculty</p>
+
+        {% if failed_list and failed_list|length > 0 %}
+          <p><strong>Failed to fetch for:</strong></p>
+          <ul>
+            {% for name in failed_list %}
+              <li>{{ name }}</li>
+            {% endfor %}
+          </ul>
+        {% else %}
+          <p>✅ All faculty updated successfully.</p>
+        {% endif %}
+
+        {% if download_ready %}
+          <p class="note">Updated Excel is ready.</p>
+          <a href="{{ url_for('download_updated') }}" class="btn-primary">⬇ Download Updated Excel</a>
+        {% else %}
+          <p class="error">Updated Excel file not found.</p>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    <a href="{{ url_for('home') }}" class="btn-back">← Back to Home</a>
+  </div>
+  <footer class="footer">
+    <img src="{{ url_for('static', filename='logo.png') }}" class="footer-logo">
+    <p>© p_for_pratik143 — All Rights Reserved</p>
+</footer>
+
+</body>
+</html>

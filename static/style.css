@@ -1,0 +1,203 @@
+body {
+  font-family: "Segoe UI", sans-serif;
+  background: linear-gradient(135deg, #e3f2fd, #f1f8e9);
+  margin: 0;
+  padding: 40px 0;
+}
+
+.container {
+  width: 90%;
+  max-width: 900px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 30px 25px 40px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  text-align: center;
+  color: #555;
+  margin-bottom: 25px;
+}
+
+.card {
+  border-radius: 12px;
+  border: 1px solid #e0e0e0;
+  padding: 20px;
+  margin-top: 20px;
+  background: #fafafa;
+}
+
+.card h2 {
+  margin-top: 0;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="url"] {
+  width: 100%;
+  padding: 8px 10px;
+  margin: 6px 0;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+button {
+  margin-top: 8px;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  background: #1976d2;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #1565c0;
+}
+
+.message {
+  padding: 10px 14px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+}
+
+.message.error {
+  background: #ffebee;
+  color: #c62828;
+  border: 1px solid #ef9a9a;
+}
+
+.message.success {
+  background: #e8f5e9;
+  color: #2e7d32;
+  border: 1px solid #a5d6a7;
+}
+
+.result-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+}
+
+.result-table th,
+.result-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.result-table th {
+  background: #1976d2;
+  color: white;
+  width: 30%;
+}
+
+.btn-back, .btn-primary {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 8px 14px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.btn-back {
+  background: #757575;
+  color: #fff;
+}
+
+.btn-primary {
+  background: #2e7d32;
+  color: #fff;
+}
+
+.note {
+  color: #555;
+  font-size: 13px;
+  margin-top: 8px;
+}
+
+/* ===== Loading overlay & spinner ===== */
+
+#loading-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  font-size: 18px;
+  color: #333;
+  text-align: center;
+}
+
+#loading-overlay.hidden {
+  display: none;
+}
+
+.spinner {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 6px solid #ddd;
+  border-top-color: #007bff;
+  animation: spin 1s linear infinite;
+  margin-bottom: 15px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Optional button colours for add/delete */
+button.success {
+  background: #28a745;
+}
+
+button.danger {
+  background: #e74c3c;
+}
+
+/* ===== Fixed Footer ===== */
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #ffffff;
+  border-top: 1px solid #ddd;
+  text-align: center;
+  padding: 10px 0;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-logo {
+  height: 32px;
+  width: auto;
+  margin-bottom: 5px;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 14px;
+  color: #444;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}

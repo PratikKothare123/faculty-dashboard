@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Faculty Result | Google Scholar Data Fetcher</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <div class="container">
+    <h1>📊 Google Scholar Data Fetcher</h1>
+
+    {% if error %}
+      <div class="message error">{{ error }}</div>
+    {% elif message %}
+      <div class="message success">{{ message }}</div>
+    {% elif data %}
+      <div class="card">
+        <h2>Faculty Data</h2>
+        <p><strong>Name:</strong> {{ data["Name"] }}</p>
+        {% if url %}
+          <p><strong>Profile:</strong> <a href="{{ url }}" target="_blank">Open Google Scholar Profile</a></p>
+        {% endif %}
+        <table class="result-table">
+          <tr><th>Citations</th><td>{{ data["Citations"] }}</td></tr>
+          <tr><th>H-index</th><td>{{ data["H-index"] }}</td></tr>
+          <tr><th>i10-index</th><td>{{ data["i10-index"] }}</td></tr>
+        </table>
+      </div>
+    {% else %}
+      <div class="message">No data to display.</div>
+    {% endif %}
+
+    <a href="{{ url_for('home') }}" class="btn-back">← Back to Home</a>
+  </div>
+  <footer class="footer">
+    <img src="{{ url_for('static', filename='logo.png') }}" class="footer-logo">
+    <p>© p_for_pratik143 — All Rights Reserved</p>
+</footer>
+
+</body>
+</html>

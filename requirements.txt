@@ -1,0 +1,4 @@
+flask
+pandas
+openpyxl
+google-search-results
