@@ -7,7 +7,8 @@ from serpapi import GoogleSearch  # pip install google-search-results
 app = Flask(__name__)
 
 # 🔑 Put your real SerpAPI key here
-SERPAPI_KEY = "7340ade5799142b3155a7c00bae688ab0fce8e21b25f8b96052e5122f1bbabc7"
+SERPAPI_KEY = os.environ.get("7340ade5799142b3155a7c00bae688ab0fce8e21b25f8b96052e5122f1bbabc7")
+
 
 # 🔐 Simple admin password (change it as you like)
 ADMIN_PASSWORD = "pratik123"
