@@ -3,3 +3,4 @@ pandas
 openpyxl
 google-search-results
 gunicorn
+python-dotenv

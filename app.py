@@ -1,13 +1,19 @@
-from flask import Flask, render_template, request, send_file
+from flask import Flask, render_template, request, send_file, redirect, url_for
 import pandas as pd
 import os
 import time
-from serpapi import GoogleSearch  # pip install google-search-results
+from serpapi import GoogleSearch
+from dotenv import load_dotenv
+
+load_dotenv()  # <-- load .env file
+
+SERPAPI_KEY = os.environ.get("SERPAPI_KEY")
+
+if not SERPAPI_KEY:
+    raise RuntimeError("SERPAPI_KEY environment variable not set! Please set it before running the app.")
 
 app = Flask(__name__)
 
-# 🔑 Put your real SerpAPI key here
-SERPAPI_KEY = os.environ.get("7340ade5799142b3155a7c00bae688ab0fce8e21b25f8b96052e5122f1bbabc7")
 
 
 # 🔐 Simple admin password (change it as you like)
