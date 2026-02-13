@@ -9,7 +9,7 @@ This project helps educational institutions maintain updated research performanc
 ## 🌐 Live Deployment
 
 🔗 **Live Website:**  
-https://faculty-dashboard.onrender.com
+https://faculty-dashboard-ygz6.onrender.com
 
 ---
 
@@ -50,7 +50,7 @@ https://faculty-dashboard.onrender.com
 ---
 
 ## 📂 Project Structure
-
+```
 faculty-dashboard/
 │
 ├── app.py 
@@ -71,7 +71,7 @@ faculty-dashboard/
 ├── index.html
 ├── result_one.html 
 └── result_all.html 
-
+```
 ---
 
 ## 💻 How to Clone and Run This Project on Another Machine
@@ -81,57 +81,62 @@ faculty-dashboard/
 ```bash
 git clone https://github.com/PratikKothare123/faculty-dashboard.git
 cd faculty-dashboard
-Step 2️⃣ Create Virtual Environment
+```
+### Step 2️⃣ Create Virtual Environment
+`
 python -m venv venv
+`
 Activate Virtual Environment:
 
-Windows
-venv\Scripts\activate
-Mac/Linux
-source venv/bin/activate
-Step 3️⃣ Install Dependencies
-pip install -r requirements.txt
-Step 4️⃣ Create .env File
-Create a file named .env in the root folder and add:
+#### Windows
+``venv\Scripts\activate``
+#### Mac/Linux
+```source venv/bin/activate```
+### Step 3️⃣ Install Dependencies
+```pip install -r requirements.txt```
+### Step 4️⃣ Create ```.env``` File
+Create a file named``` .env ```in the root folder and add:
 
-SERPAPI_KEY=your_serpapi_key_here
-Step 5️⃣ Run Application
-python app.py
+```SERPAPI_KEY=your_serpapi_key_here```
+### Step 5️⃣ Run Application
+```python app.py```
 Open browser and visit:
 
-http://127.0.0.1:5000
-📥 How to Use the Application
-Select a faculty name to fetch research metrics
+```http://127.0.0.1:5000```
+## 📥 How to Use the Application
+- Select a faculty name to fetch research metrics
 
-Update all faculty records using bulk update
+- Update all faculty records using bulk update
 
-Download updated Excel report
+- Download updated Excel report
 
-Admin can add or delete faculty records
+- Admin can add or delete faculty records
 
-🔐 Security Implementation
-API keys are stored using environment variables
+## 🔐 Security Implementation
+- API keys are stored using environment variables
 
-Admin operations require password authentication
+- Admin operations require password authentication
 
-.env file is ignored using .gitignore
+- .env file is ignored using .gitignore
 
-🔮 Future Enhancements
-Role-based multiple admin access
+## 🔮 Future Enhancements
+- Role-based multiple admin access
 
-Authentication and user login system
+- Authentication and user login system
 
-Advanced research analytics dashboard
+- Advanced research analytics dashboard
 
-Graph and trend visualization
+- Graph and trend visualization
 
-Database integration for scalability
+- Database integration for scalability
 
-Scheduled automatic updates
-
-👨‍💻 Developed By
+- Scheduled automatic updates
+---
+## 👨‍💻 Developed By
 Pratik Kothare
-Computer Science Student
-GitHub: https://github.com/PratikKothare123
 
-⭐ If you like this project, don’t forget to star the repository!
+Computer Science Student
+
+## GitHub: https://github.com/PratikKothare123
+---
+### ⭐ If you like this project, don’t forget to star the repository!
